@@ -22,7 +22,7 @@ const ParkingCard = ({ parking, onClick, setSelectedParking, setShowDeleteModal 
 
     const handleRatingClick = (e) => {
         e.stopPropagation();
-        navigate('/review', { state: { owner_id: user_id?._id } })
+        navigate('/review', { state: { owner_id: user_id } })
     }
 
     return (
