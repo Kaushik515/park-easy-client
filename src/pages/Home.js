@@ -17,7 +17,7 @@ function Home() {
         <div className='overlay'>
           <p><span>Searching for parking?</span> <br /> <span>You've come to the right spot!</span></p>
           <h1>ParkEasy: Navigate to Hassle-Free Parking</h1>
-          {!user?.token && (<button className='btn btn-outline-primary mt-3' onClick={() => handleClick()}>Sign up now</button)>
+          {!user?.token && (<button className='btn btn-outline-primary mt-3' onClick={() => handleClick()}>Sign up now</button> )}
         </div>
       </div>
 
