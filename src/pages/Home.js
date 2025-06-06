@@ -1,10 +1,11 @@
 import React from 'react'
 import './../css/home.scss'
 import {useNavigate} from "react-router-dom"
-
+import {useSelector} from 'react-redux'
 function Home() {
 
   const navigate=useNavigate()
+  const user = useSelector((state) => state.user);
   const handleClick = () => {
     navigate("/register")
   }
@@ -16,7 +17,7 @@ function Home() {
         <div className='overlay'>
           <p><span>Searching for parking?</span> <br /> <span>You've come to the right spot!</span></p>
           <h1>ParkEasy: Navigate to Hassle-Free Parking</h1>
-          <button className='btn btn-outline-primary mt-3' onClick={() => handleClick()}>Sign up now</button>
+          {!user?.token && (<button className='btn btn-outline-primary mt-3' onClick={() => handleClick()}>Sign up now</button)>
         </div>
       </div>
 
