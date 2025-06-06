@@ -20,6 +20,7 @@ const Login = () => {
     }
 
     const handleLoginSuccess = (data) => {
+        localStorage.setItem("token", data?.token);
         dispatch(setUser({ ...data?.user, token: data?.token }));
         navigate('/')
     }
