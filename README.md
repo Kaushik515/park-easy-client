@@ -54,8 +54,14 @@ ParkEasy is designed to simplify parking for both **parking seekers** and **park
 
 ---
 
-## 🚀 Getting Started (Frontend)
+### API Integration
+The frontend communicates with the backend through REST APIs for:
+- Authentication
+- Parking space management
+- Booking system
+- Reviews and ratings
 
+## 🚀 Getting Started (Frontend)
 Follow these steps to run the project locally.
 
 ### Prerequisites
