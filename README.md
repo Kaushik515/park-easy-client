@@ -44,7 +44,7 @@ ParkEasy is designed to simplify parking for both **parking seekers** and **park
 - React
 - JavaScript
 - HTML5
-- CSS3
+- CSS
 - Redux (state management)
 
 **Backend**
