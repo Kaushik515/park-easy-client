@@ -1,77 +1,118 @@
-# ParkEasy – Frontend
-
-ParkEasy is a MERN stack–based parking management web application that helps users find, book, and manage parking spaces efficiently.  
-This repository contains the **frontend client** of the ParkEasy platform.
-
----
-
-## 🌐 Live Demo
-👉 https://park-easy-client.onrender.com/
-
-## 🖥 Backend Repository
-👉 https://github.com/Kaushik515/park-easy-server
+<p align="center">
+  <h1 align="center">🅿️ ParkEasy Client</h1>
+  <p align="center">
+    Smart Parking Management System – Frontend
+  </p>
+</p>
 
 ---
 
-## 📌 About the Project
+## 🚀 Live Demo
 
-ParkEasy is designed to simplify parking for both **parking seekers** and **parking space owners**.
-
-- Parking seekers can view available parking slots, book them, and leave reviews.
-- Parking owners can add new parking areas and manage parking spaces.
-- Reviews and ratings are publicly visible to help users make better decisions.
+🌐 https://park-easy-client.onrender.com
 
 ---
 
-## ✨ Features
+## 📌 Overview
 
-- User registration and login
-- View available parking slots
-- Book parking slots (for seekers)
-- Add new parking areas and parking spaces (for owners)
-- View parking slot details
-- Add reviews for each parking slot
-- Publicly visible reviews for all users
-- Responsive and user-friendly UI
+ParkEasy is a full-stack smart parking platform that enables users to:
+
+- 🔍 Search parking locations
+- 📅 View available spaces
+- 🚗 Book parking slots
+- 👤 Manage profile
+- 📖 View booking history
+- 🏢 Create parking (Owner role)
+
+This repository contains the **React frontend application**.
 
 ---
 
 ## 🛠 Tech Stack
 
-### MERN Stack
-
-**Frontend**
-- React
-- JavaScript
-- HTML5
-- CSS
-- Redux (state management)
-
-**Backend**
-- Node.js
-- Express.js
-- MongoDB
+- ⚛️ React.js
+- 🌐 Axios
+- 🎨 CSS / Custom Dark Theme
+- 🔐 JWT Authentication
+- 🌍 Deployed on Render
 
 ---
 
-### API Integration
-The frontend communicates with the backend through REST APIs for:
-- Authentication
-- Parking space management
-- Booking system
-- Reviews and ratings
+## 📸 Application Screenshots
 
-## 🚀 Getting Started (Frontend)
-Follow these steps to run the project locally.
+### 🏠 Home Page
+<p align="center">
+  <img src="assets/screenshots/home.png" width="800"/>
+</p>
 
-### Prerequisites
-Make sure you have:
-- Node.js (v16 or above)
-- npm
+---
 
-### Installation
+### 🔐 Authentication
+<p align="center">
+  <img src="assets/screenshots/login.png" width="400"/>
+  <img src="assets/screenshots/signup.png" width="400"/>
+</p>
+
+---
+
+### 🅿️ Create Parking & Space
+<p align="center">
+  <img src="assets/screenshots/create-parking.png" width="400"/>
+  <img src="assets/screenshots/create-space.png" width="400"/>
+</p>
+
+---
+
+### 🔎 Search & Booking
+<p align="center">
+  <img src="assets/screenshots/search-spaces.png" width="400"/>
+  <img src="assets/screenshots/make-booking.png" width="400"/>
+</p>
+
+---
+
+### 📖 My Bookings
+<p align="center">
+  <img src="assets/screenshots/my-bookings.png" width="800"/>
+</p>
+
+---
+
+### 👤 Manage Profile
+<p align="center">
+  <img src="assets/screenshots/manage-profile.png" width="600"/>
+</p>
+
+---
+
+## ⚙️ Setup Instructions
+
+Clone the repository:
 
 ```bash
-git clone https://github.com/Kaushik515/park-easy-client.git
+git clone https://github.com/Kaushik515/park-easy-client
 cd park-easy-client
 npm install
+npm start
+
+🔐 Environment Variables
+
+Create a .env file:
+
+REACT_APP_API_URL=your_backend_url
+
+📂 Project Structure
+src/
+ ├── components/
+ ├── pages/
+ ├── services/
+ ├── context/
+ ├── App.js
+
+👨‍💻 Author
+
+Kaushik Kotha
+
+📜 License
+
+This project is licensed under the MIT License.
