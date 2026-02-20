@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import './styles.scss'
 import { useSelector } from 'react-redux'
 
-const CityCard = ({location}) => {
-    const { city, country} = location
+const CityCard = ({ location }) => {
+    const { city, country } = location
     const navigate = useNavigate()
-    const lowerCaseCity=city.toLowerCase()
+    const lowerCaseCity = city.toLowerCase()
     const url = `/${lowerCaseCity}`;
     function handleClick() {
         navigate(url)

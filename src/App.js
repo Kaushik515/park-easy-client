@@ -31,8 +31,8 @@ function App() {
           <Route path="review" element={<Reviews />} />
           <Route path="users" element={<Users />} />
           <Route path="about" element={<About />} />
-          {/* <Route path="city" element={<City />} /> */}
-          {/* <Route path=":city" element={<Address />} /> */}
+          <Route path="city" element={<City />} />
+          <Route path=":city" element={<Address />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />

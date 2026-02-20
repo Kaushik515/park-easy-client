@@ -2,7 +2,7 @@ import axios from 'axios'
 const BASE_URL = "https://park-easy-server.onrender.com/"
 // const BASE_URL = "http://localhost:5000/" 
 
-export const fetchParkings = async ({ user_id, country, city, address, setParkings}) => {
+export const fetchParkings = async ({ user_id, country, city, address, setParkings }) => {
     try {
         let query = '';
         if (user_id) {
@@ -11,13 +11,13 @@ export const fetchParkings = async ({ user_id, country, city, address, setParkin
         else {
             query += '?'
         }
-        if(country) {
+        if (country) {
             query += `country=${country}&`
         }
-        if(city) {
+        if (city) {
             query += `city=${city}&`
         }
-        if(address) {
+        if (address) {
             query += `address=${address}`
         }
         const result = await axios.get(`${BASE_URL}parking${query}`)
@@ -25,7 +25,7 @@ export const fetchParkings = async ({ user_id, country, city, address, setParkin
         if (result?.data?.length) {
             setParkings(result?.data)
         }
-        
+
     } catch (error) {
         console.error('fetchParkings ', error);
     }
@@ -68,10 +68,10 @@ export const createParking = async ({ body, handleCreateParkingSuccess, handleCr
         const result = await axios.post(`${BASE_URL}parking`, { ...body })
         console.log('createParking ', result);
         if (result?.data?.parking) {
-            
+
             return handleCreateParkingSuccess(result.data)
         }
-        
+
     } catch (error) {
         console.error('createParking ', error);
         handleCreateParkingFailure(error?.response?.data?.error)
@@ -151,10 +151,10 @@ export const updateSpace = async ({ id, body, handleUpdateSpaceSuccess, handleUp
 export const fetchBookings = async ({ owner_id, user_id, setBookings }) => {
     try {
         let query = '';
-        if(user_id){
+        if (user_id) {
             query += `user_id=${user_id}&`;
         }
-        if(owner_id){
+        if (owner_id) {
             query += `owner_id=${owner_id}&`;
         }
         const result = await axios.get(`${BASE_URL}booking?${query}`)
@@ -339,7 +339,7 @@ export const createCity = async ({ body, handleCreateCitySuccess, handleCreateCi
         if (result?.data?.newCity) {
             return handleCreateCitySuccess(result.data)
         }
-        
+
     } catch (error) {
         console.error('createCity ', error);
         handleCreateCityFailure(error?.response?.data?.error)
@@ -347,11 +347,11 @@ export const createCity = async ({ body, handleCreateCitySuccess, handleCreateCi
 }
 
 //for getting cities
-export const fetchLocations = async ({ city, country, setLocations}) => {
+export const fetchLocations = async ({ city, country, setLocations }) => {
 
     try {
-        if(city!==undefined) {
-            const result = await axios.get(`${BASE_URL}city?city=${city}`) 
+        if (city !== undefined) {
+            const result = await axios.get(`${BASE_URL}city?city=${city}`)
             //console.log('fetchLocations ', result);
             if (result?.data?.length) {
                 setLocations(result?.data)
@@ -365,7 +365,7 @@ export const fetchLocations = async ({ city, country, setLocations}) => {
                 setLocations(result?.data)
             }
         }
-        
+
     } catch (error) {
         console.error('fetchLocations ', error);
     }
@@ -390,7 +390,7 @@ export const fetchAddresses = async ({ user_id, address, city, setAddresses }) =
         if (result?.data?.length) {
             setAddresses(result?.data)
         }
-        
+
     } catch (error) {
         console.error('fetchParkings ', error);
     }
