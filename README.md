@@ -20,8 +20,8 @@
 
 ---
 
-## � Table of Contents
-- [�📌 Overview](#-overview)
+## 📋 Table of Contents
+- [📌 Overview](#-overview)
 - [✨ Key Features](#-key-features)
 - [🛠 Tech Stack](#-tech-stack)
 - [📸 Application Screenshots](#-application-screenshots)
@@ -160,7 +160,7 @@
 ## ⚙️ Setup Instructions
 
 ### Prerequisites
-- Node.js (v14 or higher)
+- Node.js (v18 or higher)
 - npm or yarn
 
 ### Installation
