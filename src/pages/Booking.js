@@ -51,7 +51,7 @@ const Booking = () => {
                                         </svg>
                                     </button>
                                 </>
-                                :<span>Done</span>}
+                                : <span>Done</span>}
                         </>
                     }
                 </td>
@@ -61,13 +61,15 @@ const Booking = () => {
 
     useEffect(() => {
         // Booking List API sets bookings state using setBookings passed as callback function
-        if (user?.type === 'owner') {
-            fetchBookings({ owner_id: user?._id, setBookings })
+        if (user?._id) {
+            if (user?.type === 'owner') {
+                fetchBookings({ owner_id: user?._id, setBookings })
+            }
+            else {
+                fetchBookings({ user_id: user?._id, setBookings })
+            }
         }
-        else {
-            fetchBookings({ user_id: user?._id, setBookings })
-        }
-    }, [])
+    }, [user])
 
     const handleDelete = (booking) => {
         setSelectedBooking(booking)

@@ -40,7 +40,7 @@ const Reviews = () => {
     useEffect(() => {
         // Reviews List API sets reviews state using setReviews passed as callback function
         fetchReviews({ owner_id: state?.owner_id, setReviews })
-    }, [])
+    }, [state?.owner_id])
 
     const handleDelete = (review) => {
         setSelectedReview(review)
