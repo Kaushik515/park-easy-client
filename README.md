@@ -69,91 +69,80 @@
 ## 📸 Application Screenshots
 
 ### 🏠 Home & About
-````carousel
-![Home Page](assets/screenshots/Home.png)
-<!-- slide -->
-![First View](assets/screenshots/First%20view.png)
-<!-- slide -->
-![Home Page Continued](assets/screenshots/Home%20scroll%20down.png)
-<!-- slide -->
-![About Page](assets/screenshots/About.png)
-<!-- slide -->
-![About Page Continued](assets/screenshots/About%20scroll%20down.png)
-````
+<p align="center">
+  <img src="assets/screenshots/Home.png" width="90%" alt="Home Page"/><br/><br/>
+  <img src="assets/screenshots/First%20view.png" width="90%" alt="First View"/><br/><br/>
+  <img src="assets/screenshots/Home%20scroll%20down.png" width="90%" alt="Home Page Continued"/><br/><br/>
+  <img src="assets/screenshots/About.png" width="90%" alt="About Page"/><br/><br/>
+  <img src="assets/screenshots/About%20scroll%20down.png" width="90%" alt="About Page Continued"/>
+</p>
 
 ---
 
 ### 🔐 Authentication
 <p align="center">
-  <img src="assets/screenshots/Login.png" width="400" alt="Login Page"/>
-  <img src="assets/screenshots/Register.png" width="400" alt="Registration Page"/>
+  <img src="assets/screenshots/Login.png" width="45%" alt="Login Page"/>
+  <img src="assets/screenshots/Register.png" width="45%" alt="Registration Page"/>
 </p>
 
 ---
 
 ### 🅿️ Parking Management (Owner)
 <p align="center">
-  <img src="assets/screenshots/Create%20Parking.png" width="400" alt="Create Parking"/>
-  <img src="assets/screenshots/Parking%20owner.png" width="400" alt="Owner Parking List"/>
+  <img src="assets/screenshots/Create%20Parking.png" width="45%" alt="Create Parking"/>
+  <img src="assets/screenshots/Parking%20owner.png" width="45%" alt="Owner Parking List"/>
 </p>
 
 ---
 
 ### 📍 Space Management (Owner)
 <p align="center">
-  <img src="assets/screenshots/Create%20Space.png" width="400" alt="Create Space"/>
-  <img src="assets/screenshots/Spaces%20Owner.png" width="400" alt="Owner Space List"/>
+  <img src="assets/screenshots/Create%20Space.png" width="45%" alt="Create Space"/>
+  <img src="assets/screenshots/Spaces%20Owner.png" width="45%" alt="Owner Space List"/>
 </p>
 
 ---
 
 ### 🏙 City & Address Search
-````carousel
-![City Search (Seeker)](assets/screenshots/City%20Seeker.png)
-<!-- slide -->
-![Address Search (Seeker)](assets/screenshots/Address%20Seeker.png)
-<!-- slide -->
-![City Management (Owner)](assets/screenshots/City%20Owner.png)
-<!-- slide -->
-![Address Management (Owner)](assets/screenshots/Address%20Owner.png)
-````
+<p align="center">
+  <img src="assets/screenshots/City%20Seeker.png" width="45%" alt="City Search (Seeker)"/>
+  <img src="assets/screenshots/Address%20Seeker.png" width="45%" alt="Address Search (Seeker)"/><br/><br/>
+  <img src="assets/screenshots/City%20Owner.png" width="45%" alt="City Management (Owner)"/>
+  <img src="assets/screenshots/Address%20Owner.png" width="45%" alt="Address Management (Owner)"/>
+</p>
 
 ---
 
 ### 🔎 Search & Booking (Seeker)
-````carousel
-![Parking Search](assets/screenshots/Parking%20seeker.png)
-<!-- slide -->
-![Space Search](assets/screenshots/Spaces%20seeker.png)
-<!-- slide -->
-![Make Booking](assets/screenshots/make%20booking.png)
-````
+<p align="center">
+  <img src="assets/screenshots/Parking%20seeker.png" width="90%" alt="Parking Search"/><br/><br/>
+  <img src="assets/screenshots/Spaces%20seeker.png" width="90%" alt="Space Search"/><br/><br/>
+  <img src="assets/screenshots/make%20booking.png" width="90%" alt="Make Booking"/>
+</p>
 
 ---
 
 ### 📖 Booking Management
-````carousel
-![My Bookings (Seeker)](assets/screenshots/Booking%20seeker.png)
-<!-- slide -->
-![Manage Bookings (Owner)](assets/screenshots/Booking%20owner.png)
-````
+<p align="center">
+  <img src="assets/screenshots/Booking%20seeker.png" width="45%" alt="My Bookings (Seeker)"/>
+  <img src="assets/screenshots/Booking%20owner.png" width="45%" alt="Manage Bookings (Owner)"/>
+</p>
 
 ---
 
 ### ⭐ Reviews
 <p align="center">
-  <img src="assets/screenshots/Reviews%20combined.png" width="400" alt="Review Section"/>
-  <img src="assets/screenshots/Own%20Review.png" width="400" alt="Owner Profile Review"/>
+  <img src="assets/screenshots/Reviews%20combined.png" width="45%" alt="Review Section"/>
+  <img src="assets/screenshots/Own%20Review.png" width="45%" alt="Owner Profile Review"/>
 </p>
 
 ---
 
 ### 👤 Manage Profile
-````carousel
-![Profile (Seeker)](assets/screenshots/Profile%20Seeker.png)
-<!-- slide -->
-![Profile (Owner)](assets/screenshots/Profile%20Owner.png)
-````
+<p align="center">
+  <img src="assets/screenshots/Profile%20Seeker.png" width="45%" alt="Profile (Seeker)"/>
+  <img src="assets/screenshots/Profile%20Owner.png" width="45%" alt="Profile (Owner)"/>
+</p>
 
 ---
 
