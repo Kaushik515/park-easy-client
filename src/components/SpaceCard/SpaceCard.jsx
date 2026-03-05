@@ -7,6 +7,9 @@ const SpaceCard = ({ space, onBooking, setSelectedSpace, setShowDeleteModal }) =
     const user = useSelector((state) => state.user);
     const navigate = useNavigate()
     const { name, date, price, slot_start_time, slot_end_time, parking_id, is_booked } = space
+    const isOwnerOfSpace = parking_id?.user_id?.toString?.() === user?._id
+    const canManageSpace = user?.type === 'admin' || (user?.type === 'owner' && isOwnerOfSpace)
+    const canBookSpace = user?.type === 'seeker' || (user?.type === 'owner' && !isOwnerOfSpace)
 
     const handleEdit = (e) => {
         e.stopPropagation();
@@ -24,7 +27,7 @@ const SpaceCard = ({ space, onBooking, setSelectedSpace, setShowDeleteModal }) =
             <div>
                 <div className='d-flex justify-content-between'>
                     <h3 className='mt-3 ms-4'>Parking Details</h3>
-                    {user?.type !== 'seeker' &&
+                    {canManageSpace &&
                         <div className='mt-3 me-4'>
                             <button className='btn btn-outline-warning' onClick={handleEdit}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil" viewBox="0 0 16 16">
@@ -80,7 +83,7 @@ const SpaceCard = ({ space, onBooking, setSelectedSpace, setShowDeleteModal }) =
 
             {!is_booked ?
                 <>
-                    <button className='btn btn-outline-primary my-3 mx-3' onClick={onBooking} disabled={user?.type === "owner"}>Book</button>
+                    <button className='btn btn-outline-primary my-3 mx-3' onClick={onBooking} disabled={!canBookSpace}>Book</button>
                     <div className='posted-by px-4 py-2'>
                     </div>
                 </>

@@ -1,0 +1,98 @@
+.profile-card {
+  width: 500px;
+  max-width: 90%;
+  margin: 40px auto;
+  background: #000;
+  border-radius: 12px;
+  color: #fff;
+  position: relative;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border: 1px solid #23272f;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+}
+.profile-card h3 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+.profile-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00c6ff;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+  background: #23272f;
+  box-shadow: 0 4px 24px 0 rgba(0, 198, 255, 0.18), 0 1.5px 8px 0 rgba(0,0,0,0.12);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.profile-avatar:hover {
+  box-shadow: 0 8px 32px 0 rgba(0, 198, 255, 0.28), 0 2px 12px 0 rgba(0,0,0,0.18);
+  border-color: #007bff;
+}
+.profile-info {
+  margin-bottom: 1.2rem;
+  font-size: 1.08rem;
+  display: flex;
+  align-items: center;
+}
+.profile-info strong {
+  min-width: 120px;
+  color: #8ecfff;
+  font-weight: 600;
+}
+.profile-btns {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.profile-card input[type="text"],
+.profile-card input[type="email"],
+.profile-card input[type="tel"],
+.profile-card input[type="password"],
+.profile-card input[type="file"] {
+  background: #23272f;
+  border: 1px solid #2c313c;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 1rem;
+}
+.profile-card label {
+  color: #8ecfff;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.profile-card .btn-primary {
+  background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.profile-card .btn-primary:hover {
+  background: linear-gradient(90deg, #0056b3 60%, #0096c7 100%);
+}
+.profile-card .btn-success {
+  background: linear-gradient(90deg, #28a745 60%, #00c896 100%);
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+}
+.profile-card .btn-secondary {
+  background: #23272f;
+  color: #8ecfff;
+  border: 1px solid #2c313c;
+  border-radius: 8px;
+}
+.profile-card .alert {
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.profile-card .form-check-input {
+  accent-color: #007bff;
+}

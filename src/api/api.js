@@ -52,11 +52,12 @@ export const login = async ({ email, password, handleLoginSuccess, handleLoginFa
     }
 }
 
-export const register = async ({ name, email, password, type, handleRegisterSuccess, handleRegisterFailure }) => {
+export const register = async ({ name, email, phone, password, type, handleRegisterSuccess, handleRegisterFailure }) => {
     try {
         const result = await axios.post(`${BASE_URL}/user/register`, {
             name,
             email,
+            phone,
             password,
             type
         })
@@ -100,26 +101,28 @@ export const updateParking = async ({ id, body, handleUpdateParkingSuccess, hand
 
 export const fetchSpaces = async ({ user_id, parking_id, name, date, time, availability, setSpaces }) => {
     try {
-        let query = ''
+        const params = new URLSearchParams();
         if (user_id) {
-            query += `user_id=${user_id}&`
+            params.append('user_id', user_id)
         }
         if (parking_id) {
-            query += `parking_id=${parking_id}&`
+            params.append('parking_id', parking_id)
         }
         if (name) {
-            query += `name=${name}&`
+            params.append('name', name)
         }
         if (date) {
-            query += `date=${date}&`
+            params.append('date', date)
         }
         if (time) {
-            query += `time=${time}&`
+            params.append('time', time)
         }
-        if (availability) {
-            query += `availability=${availability}`
+        if (availability === true) {
+            params.append('availability', 'true')
         }
-        const result = await axios.get(`${BASE_URL}/space?${query}`)
+
+        const query = params.toString();
+        const result = await axios.get(`${BASE_URL}/space${query ? `?${query}` : ''}`)
         console.log('fetchSpaces ', result);
         setSpaces(result?.data || [])
     } catch (error) {
@@ -325,7 +328,7 @@ export const deleteUser = async ({ id, handleDeleteUserSuccess, handleDeleteUser
         console.log(`URL >> ${BASE_URL}/user/delete/${id}`);
         const result = await axios.delete(`${BASE_URL}/user/delete/${id}`)
         if (result?.data?.message) {
-            return handleDeleteUserSuccess(result.message)
+            return handleDeleteUserSuccess(result?.data?.message)
         }
         console.log('deleteUser ', result);
     } catch (error) {
@@ -355,16 +358,17 @@ export const createCity = async ({ body, handleCreateCitySuccess, handleCreateCi
 export const fetchLocations = async ({ city, country, setLocations }) => {
 
     try {
-        if (city !== undefined) {
-            const result = await axios.get(`${BASE_URL}/city?city=${city}`)
-            //console.log('fetchLocations ', result);
-            setLocations(result?.data || [])
+        const params = new URLSearchParams();
+        if (city) {
+            params.append('city', city)
         }
-        else {
-            const result = await axios.get(`${BASE_URL}/city`)
-            //console.log('fetchLocations ', result);
-            setLocations(result?.data || [])
+        if (country) {
+            params.append('country', country)
         }
+
+        const query = params.toString();
+        const result = await axios.get(`${BASE_URL}/city${query ? `?${query}` : ''}`)
+        setLocations(result?.data || [])
 
     } catch (error) {
         console.error('fetchLocations ', error);

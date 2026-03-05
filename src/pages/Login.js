@@ -11,12 +11,28 @@ const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
 
     const [error, setError] = useState()
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const trimmedEmail = email.trim()
+    const isEmailValid = emailRegex.test(trimmedEmail)
+
     // Login API call with callback functions for handling response
     const handleLogin = () => {
-        login({ email, password, handleLoginSuccess, handleLoginFailure })
+        setError()
+        if (!trimmedEmail) {
+            return setError('Please enter email')
+        }
+        if (!isEmailValid) {
+            return setError('Please enter a valid email address')
+        }
+        if (!password) {
+            return setError('Please enter password')
+        }
+
+        login({ email: trimmedEmail.toLowerCase(), password, handleLoginSuccess, handleLoginFailure })
     }
 
     const handleLoginSuccess = (data) => {
@@ -38,11 +54,21 @@ const Login = () => {
                 </div>}
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input type="email" className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email address' required />
+                    {trimmedEmail.length > 0 && (
+                        <div className={`form-text ${isEmailValid ? 'text-success' : 'text-danger'}`}>
+                            {isEmailValid ? 'Valid email format' : 'Enter a valid email address'}
+                        </div>
+                    )}
                 </div>
                 <div className="mb-3">
                     <label htmlFor="pass" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="pass" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <div className='input-group'>
+                        <input type={showPassword ? 'text' : 'password'} className="form-control" id="pass" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        <button type='button' className='btn btn-outline-secondary auth-toggle-btn' onClick={() => setShowPassword((prev) => !prev)}>
+                            {showPassword ? 'Hide' : 'Show'}
+                        </button>
+                    </div>
                 </div>
                 <div className='d-flex justify-content-between'>
                     Are you a new user?<Link to='/register'>Create account</Link>

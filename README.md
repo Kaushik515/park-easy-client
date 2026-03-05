@@ -40,6 +40,16 @@
 
 ## ✨ Key Features
 
+### 🆕 Recent Updates
+- **Enhanced Registration UX**: Live email/phone validation, password visibility toggle, and password-strength checklist while typing.
+- **Authentication Rules**: Login is now **email-only**; registration and profile include phone number support.
+- **Owner View Modes**: Owners can switch between **All Listings**, **My Listings**, and **Community Listings** in Parking and Spaces.
+- **City Discovery Modes (Owner)**: Owners can filter cities as **All Cities**, **Cities I Host In**, and **Cities by Other Hosts**.
+- **Safer Listing Controls**: Edit/Delete actions are shown only for listings owned by the current owner (or admin).
+- **Booking Flexibility for Owners**: Owners can book community spaces while their own spaces remain non-bookable by themselves.
+- **Profile Management**: Users can delete their own profile from the Profile page.
+- **Improved Search Filters**: Spaces "Available" checkbox now reliably filters only available spaces; city search supports city + country together.
+
 ### 🔍 For Parking Seekers
 - **Smart Search**: Find parking slots by country, city, or specific address.
 - **Real-time Availability**: View available spaces for specific dates and times.

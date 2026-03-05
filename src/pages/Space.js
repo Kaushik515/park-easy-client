@@ -10,7 +10,9 @@ const Space = () => {
     const user = useSelector((state) => state.user);
     const navigate = useNavigate();
     const { state } = useLocation();
-    const [spaces, setSpaces] = useState()
+    const [spaces, setSpaces] = useState([])
+    const [ownerView, setOwnerView] = useState('all')
+
     const time = ['12:00am', '2:00am', '4:00am', '6:00am', '8:00am', '10:00am',
         '12:00pm', '2:00pm', '4:00pm', '6:00pm', '8:00pm', '10:00pm']
 
@@ -22,34 +24,42 @@ const Space = () => {
         availability: false
     })
 
-    // Delete management states
     const [selectedSpace, setSelectedSpace] = useState()
     const [showDeleteModal, setShowDeleteModal] = useState(false)
 
-    useEffect(() => {
-        console.log('state ', state);
-        // Space List API sets spaces state using setSpaces passed as callback function
-        if (user?.type === 'owner') {
-            if (state?.parking?._id) {
-                fetchSpaces({ user_id: user?._id, parking_id: state?.parking?._id, setSpaces })
-            }
-            else {
-                fetchSpaces({ user_id: user?._id, setSpaces })
-            }
+    const filterSpacesByOwnerView = (items) => {
+        if (user?.type !== 'owner') {
+            return items || []
+        }
+
+        if (ownerView === 'mine') {
+            return (items || []).filter((item) => item?.parking_id?.user_id?.toString?.() === user?._id)
+        }
+
+        if (ownerView === 'others') {
+            return (items || []).filter((item) => item?.parking_id?.user_id?.toString?.() !== user?._id)
+        }
+
+        return items || []
+    }
+
+    const loadSpaces = (filters = searchForm) => {
+        if (state?.parking?._id) {
+            fetchSpaces({ parking_id: state?.parking?._id, setSpaces, ...filters })
         }
         else {
-            if (state?.parking?._id) {
-                fetchSpaces({ parking_id: state?.parking?._id, setSpaces })
-            }
-            else {
-                fetchSpaces({ setSpaces })
-            }
+            fetchSpaces({ setSpaces, ...filters })
         }
+    }
+
+    useEffect(() => {
+        loadSpaces()
     }, [state])
 
-    // Used to display multiple Space cards
+    const visibleSpaces = filterSpacesByOwnerView(spaces)
+
     const spaceCards = () => {
-        return spaces && spaces.map((item, index) => (
+        return visibleSpaces && visibleSpaces.map((item, index) => (
             <div className='col-md-4' key={index}>
                 <SpaceCard
                     space={item}
@@ -66,46 +76,15 @@ const Space = () => {
 
     const handleSearch = () => {
         setSpaces([])
-        if (user?.type === 'owner') {
-            if (state?.parking?._id) {
-                fetchSpaces({ user_id: user?._id, parking_id: state?.parking?._id, setSpaces, ...searchForm })
-            }
-            else {
-                fetchSpaces({ user_id: user?._id, setSpaces, ...searchForm })
-            }
-        }
-        else {
-            if (state?.parking?._id) {
-                fetchSpaces({ parking_id: state?.parking?._id, setSpaces, ...searchForm })
-            }
-            else {
-                fetchSpaces({ setSpaces, ...searchForm })
-            }
-        }
+        loadSpaces(searchForm)
     }
 
-    // Used to delete parking
     const handleDeleteSpace = () => {
         deleteSpace({ id: selectedSpace?._id, handleDeleteSpaceSuccess, handleDeleteSpaceFailure })
     }
 
     const handleDeleteSpaceSuccess = () => {
-        if (user?.type === 'owner') {
-            if (state?.parking?._id) {
-                fetchSpaces({ user_id: user?._id, parking_id: state?.parking?._id, setSpaces })
-            }
-            else {
-                fetchSpaces({ user_id: user?._id, setSpaces })
-            }
-        }
-        else {
-            if (state?.parking?._id) {
-                fetchSpaces({ parking_id: state?.parking?._id, setSpaces })
-            }
-            else {
-                fetchSpaces({ setSpaces })
-            }
-        }
+        loadSpaces(searchForm)
         setShowDeleteModal(false)
     }
 
@@ -113,13 +92,20 @@ const Space = () => {
         setShowDeleteModal(false)
     }
 
-
-
     return (
         <div className='container'>
             <h1 className='mt-5'>Search Spaces</h1>
             <div className='card p-4 mt-5 blackbox'>
                 <div className='row g-3 d-flex blackdiv '>
+                    {user?.type === 'owner' && (
+                        <div className='col-md-2 space'>
+                            <select className="form-select form-select-sm owner-view-select" value={ownerView} onChange={(e) => setOwnerView(e.target.value)}>
+                                <option value='all'>All Listings</option>
+                                <option value='mine'>My Listings</option>
+                                <option value='others'>Community Listings</option>
+                            </select>
+                        </div>
+                    )}
                     <div className='col-md-2 space'>
                         <input type="text" placeholder='Space name' className='form-control' value={searchForm?.name} onChange={(e) => handleSearchForm({ key: 'name', value: e.target.value })} />
                     </div>
@@ -130,7 +116,7 @@ const Space = () => {
                         <select className="form-select" value={searchForm?.time} onChange={(e) => handleSearchForm({ key: 'time', value: e.target.value })} >
                             <option value="">Time</option>
                             {time?.map((item) => (
-                                <option value={item}>{item}</option>
+                                <option key={item} value={item}>{item}</option>
                             ))}
                         </select>
                     </div>
@@ -151,8 +137,7 @@ const Space = () => {
                 </div>
             </div>
 
-            <h4 className='mt-5'>Showing {spaces?.length || '0'} results</h4>
-
+            <h4 className='mt-5'>Showing {visibleSpaces?.length || '0'} results</h4>
 
             <div className='row mt-2 g-5'>
                 {spaceCards()}

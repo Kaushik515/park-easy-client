@@ -1,14 +1,18 @@
 .searchCity {
-    width: 640px;
+    width: 100%;
+    max-width: 1000px;
 }
-.city {
-    width: 300px;
+
+.searchCity .city {
+    width: auto;
 }
-.search {
-    margin-left: 100%;
-    margin-right: 100%;
-    width: 300px;
+
+.searchCity .search {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
 }
+
 .cityCard {
     display:inline-block;
     margin-bottom: 30px;

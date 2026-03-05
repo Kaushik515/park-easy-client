@@ -1,43 +1,39 @@
 h1{
     font-weight: lighter;
 }
-.country {
-    width: 300px;
-}
-.city {
-    width: 300px;
-}
-.address {
-    width: 300px;
-}
 .searchtick {
-    margin-left: 50px;
-    margin-right: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
 }
 .spacebutton {
-    width: 200px;
+    width: 100%;
 }
 .blackbox {
-    width: 1300px;
+    width: 100%;
 }
 .checkbox {
-    width:100px;
-    margin-top: 20px;
+    width:auto;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 .blackdiv {
-    display: flex;
-}
-.space {
-    width: 300px;
-    margin-right: 10px;
+    align-items: end;
 }
 .blacksearch {
     width: 700px;
 }
-.address {
-    width: 300px;
-    margin-right: 10px;
-}
 .addresssearch {
     width: 300px;
+}
+
+.owner-view-select {
+    min-width: 150px;
+    font-size: 0.875rem;
+}
+
+.checkbox .form-check-label {
+    margin-bottom: 0;
 }
